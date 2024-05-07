@@ -3,6 +3,8 @@ package com.shaihi.classexample;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +14,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FirstFragment firstFragment = FirstFragment.newInstance();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, firstFragment).commit();
+        SecondFragment secondFragment = SecondFragment.newInstance();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentView, firstFragment)
+                .commit();
+
+        Button fragOneBtn = findViewById(R.id.fragOneBtn);
+        Button fragTwoBtn = findViewById(R.id.fragTwoBtn);
+
+        fragOneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentView, firstFragment)
+                        .commit();
+            }
+        });
+
+        fragTwoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentView, secondFragment)
+                        .commit();
+            }
+        });
+
     }
 }

@@ -44,6 +44,7 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         TextView tv = view.findViewById(R.id.tvFragOne);
         tv.setText("HELLO 1");
